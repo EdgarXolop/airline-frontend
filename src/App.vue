@@ -1,28 +1,32 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <nav class="navbar is-fixed-top is-primary" role="navigation" aria-label="main navigation">
+      <div class="navbar-menu">
+        <div class="navbar-start">
+          <router-link class="navbar-item" to="/airplane">
+            Aviones
+          </router-link>
+
+          <router-link class="navbar-item" to="/airport">
+            Aeropuertos
+          </router-link>
+
+          <router-link class="navbar-item" to="/flight">
+            Vuelos
+          </router-link>
+        </div>
+      </div>
+    </nav>
+    <div class="container">
+      <router-view></router-view>
+    </div>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
 
 export default {
-  name: 'app',
-  components: {
-    HelloWorld
-  }
+  name: 'app'
 }
 </script>
-
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
+<style src="bulma-calendar/dist/css/bulma-calendar.min.css" rel="stylesheet">
