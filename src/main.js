@@ -7,7 +7,7 @@ import VueRouter from 'vue-router'
 import VueAxios from 'vue-axios'
 import VueTimepicker from 'vue2-timepicker'
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { faPlus,faCalendar } from '@fortawesome/free-solid-svg-icons'
+import { faPlus,faCalendar,faShoppingCart } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
 import App from './App.vue'
@@ -16,7 +16,7 @@ import Airport from './components/Airport'
 import Flight from './components/Flight'
 import Info from './components/Info'
 
-library.add(faPlus,faCalendar)
+library.add(faPlus,faCalendar,faShoppingCart)
  
 Vue.use(VueRouter)
 Vue.use(VueAxios, axios)

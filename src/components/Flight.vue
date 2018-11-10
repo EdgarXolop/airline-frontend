@@ -20,6 +20,7 @@
                     <td>{{f.aeropuerto_origen.nombre}} - {{f.aeropuerto_origen.pais|getName}}</td>
                     <td>{{f.aeropuerto_destino.nombre}} - {{f.aeropuerto_destino.pais|getName}}</td>
                     <td>{{f.avion.nombre}} - {{f.avion.plazas}}</td>
+                    <button class="button is-link" @click="setFlightForm(f)"><font-awesome-icon icon="shopping-cart"/></button>
                 </tr>
             </tbody>
         </table>
@@ -99,9 +100,17 @@
                 <button class="button is-primary" @click="setForm"><font-awesome-icon icon="plus"/></button>
             </div>
         </div>
+
+        <!--MODAL-->
+        <div class="modal" :class="{'is-active':(form_fligth!=null)}">
+            <div class="modal-background"></div>
+            <flight-form :flight="form_fligth" :cancel="closeForm" :onBuyEnd="loadFlights"/>
+        </div>
     </div>
 </template>
 <script>
+
+import Form from './Form'
 
 import bulmaCalendar from 'bulma-calendar/dist/js/bulma-calendar.min.js';
 
@@ -124,7 +133,8 @@ export default {
             airplanes:[],
             hora_salida:null,
             hora_llegada:null,
-            loading:false
+            loading:false,
+            form_fligth:null
         }
     },
     filters:{
@@ -182,6 +192,21 @@ export default {
         setHoraLlegada($event){
             console.log($event)
             this.flight.hora_llegada = `${$event.data.HH}:${$event.data.mm}`
+        },
+        closeForm(){
+            this.form_fligth = null
+        },
+        setFlightForm(f){
+            this.form_fligth = f
+        },
+        loadFlights(){
+            this.axios.get("/flight")
+            .then(response=>{
+                this.flights=response.data.data
+            })
+            .catch(error=>{
+                console.log(error.response)
+            })
         }
     },
     mounted(){
@@ -201,14 +226,7 @@ export default {
             console.log(error.response)
         })
         
-        
-        this.axios.get("/flight")
-        .then(response=>{
-            this.flights=response.data.data
-        })
-        .catch(error=>{
-            console.log(error.response)
-        })
+        this.loadFlights()
 
         const today = new Date();
         const minDate = new Date(today.getFullYear() - 100, today.getMonth(), today.getDay());
@@ -235,6 +253,9 @@ export default {
         })[0]        
         calendar_llegada.on('date:selected', e => (this.flight.fecha_llegada = this.formatDate(e.start) || null))
 
+    },
+    components:{
+        'flight-form': Form
     }
 }
 </script>
