@@ -16,8 +16,8 @@
             <div class="box">
                 <div class="media">
                     <div class="media-content">
-                        <p class="subtitle is-6">Max Cotrez</p>
-                        <p class="subtitle is-6">0900-00-00000</p>
+                        <p class="subtitle is-6">Max Ruben Cortez Dominguez</p>
+                        <p class="subtitle is-6">0900-15-17323</p>
                     </div>
                 </div>
             </div>
