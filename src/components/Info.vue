@@ -26,8 +26,8 @@
             <div class="box">
                 <div class="media">
                     <div class="media-content">
-                        <p class="subtitle is-6">Renato del Cid</p>
-                        <p class="subtitle is-6">0900-00-00000</p>
+                        <p class="subtitle is-6">Jonathan Renato del Cid Juarez</p>
+                        <p class="subtitle is-6">0900-15-10369</p>
                     </div>
                 </div>
             </div>
