@@ -132,9 +132,9 @@ export default {
                 this.user.tarjeta_credito !=null && this.user.tarjeta_credito.length >0
             ){
                 this.buy.id_flight = this.flight.id
-                const { user,buy } = this
+                const { user,buy,flight } = this
                 
-                this.axios.post("/customer/buy", { user,buy })
+                this.axios.post("/customer/buy", { user,buy,flight })
                 .then(()=>{
                     this.onBuyEnd()
                     this.closeModal()

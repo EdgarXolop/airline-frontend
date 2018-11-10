@@ -14,6 +14,10 @@
           <router-link class="navbar-item" to="/flight">
             Vuelos
           </router-link>
+
+          <router-link class="navbar-item" to="/tickets">
+            Boletos
+          </router-link>
         </div>
       </div>
     </nav>

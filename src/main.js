@@ -15,6 +15,7 @@ import Airplane from './components/Airplane'
 import Airport from './components/Airport'
 import Flight from './components/Flight'
 import Info from './components/Info'
+import Tickets from './components/Tickets'
 
 library.add(faPlus,faCalendar,faShoppingCart)
  
@@ -32,6 +33,7 @@ const router = new VueRouter({
     { path: '/airplane', component: Airplane },
     { path: '/airport', component: Airport },
     { path: '/flight', component: Flight },
+    { path: '/tickets', component: Tickets},
     { path: '/*', component: Info}
   ]
 })
